@@ -1,0 +1,243 @@
+/* offerings.css – Enhanced with theme consistency */
+
+.what-we-offer-section {
+  padding: 3.5rem 1rem;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.what-we-offer-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #76d5cb 50%, transparent 100%);
+  opacity: 0.3;
+}
+
+.offerings-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+/* Grid Layout for 5 Cards */
+.offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+/* Enhanced Card Styling - Original Size & Shape */
+.offering-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  min-height: 280px; /* Ensure consistent minimum height */
+}
+
+.offering-card:nth-child(1) { animation-delay: 0.6s; }
+.offering-card:nth-child(2) { animation-delay: 0.8s; }
+.offering-card:nth-child(3) { animation-delay: 1.0s; }
+.offering-card:nth-child(4) { animation-delay: 1.2s; }
+.offering-card:nth-child(5) { animation-delay: 1.4s; }
+
+.offering-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #76d5cb, #5fb3a9);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+  border-radius: 10px 10px 0 0;
+}
+
+.offering-card:hover::before {
+  transform: scaleX(1);
+}
+
+.offering-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(118, 213, 203, 0.12);
+  border-color: #76d5cb;
+}
+
+/* Logo/Icon - Back to Original Style */
+.card-logo {
+  height: 60px;
+  width: auto;
+  margin: 0 auto 1rem auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  flex-shrink: 0;
+  filter: sepia(10%) saturate(110%) hue-rotate(150deg);
+  transition: transform 0.3s ease;
+}
+
+.offering-card:hover .card-logo {
+  transform: scale(1.05);
+}
+
+/* Text Area - Improved Consistency */
+.offering-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+  min-height: 2.3rem; /* Ensures consistent title height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offering-desc {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  hyphens: auto;
+  word-wrap: break-word;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .offerings-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .offering-card:nth-child(4) { animation-delay: 0.6s; }
+  .offering-card:nth-child(5) { animation-delay: 0.8s; }
+}
+
+@media (max-width: 768px) {
+  .what-we-offer-section {
+    padding: 3rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+  }
+
+  .offerings-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .card-content {
+    padding: 1.25rem 1.25rem 1.75rem 1.25rem;
+  }
+
+  .offering-title {
+    font-size: 1.1rem;
+  }
+
+  .offering-desc {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .card-logo {
+    height: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .offerings-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card-icon-wrapper {
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+
+  .card-content {
+    padding: 1rem 1rem 1.5rem 1rem;
+  }
+
+  .offering-title {
+    font-size: 1.05rem;
+  }
+
+  .offering-desc {
+    font-size: 0.88rem;
+  }
+
+  .card-logo {
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .what-we-offer-section {
+    padding: 2.5rem 0.75rem;
+  }
+}
